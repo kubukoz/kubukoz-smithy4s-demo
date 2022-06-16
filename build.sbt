@@ -4,10 +4,11 @@ val root = project
   )
   .enablePlugins(Smithy4sCodegenPlugin)
   .settings(
-    scalaVersion := "2.13.8",
+    scalaVersion := "3.1.1",
     libraryDependencies ++= Seq(
+      "org.tpolecat" %% "doobie-hikari" % "1.0.0-RC2",
+      "org.tpolecat" %% "doobie-postgres" % "1.0.0-RC2",
       "com.disneystreaming.smithy4s" %% "smithy4s-core" % smithy4sVersion.value,
-      "software.amazon.smithy" % "smithy-protocol-test-traits" % "1.21.0" % Smithy4s
-    ),
-    smithy4sAllowedNamespaces := List("smithy.test", "example")
+      "org.postgresql" % "postgresql" % "42.4.0"
+    )
   )
